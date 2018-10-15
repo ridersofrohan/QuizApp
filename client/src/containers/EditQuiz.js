@@ -5,9 +5,10 @@ import { createQuiz } from '../actions/quizlist.js';
 
 import Navbar from '../components/Navbar.js';
 import Question from '../components/Question.js';
-import '../styles/CreateQuiz.css';
 
-class CreateQuiz extends Component {
+import '../styles/EditQuiz.css';
+
+class EditQuiz extends Component {
   constructor(props) {
     super(props);
 
@@ -56,6 +57,7 @@ class CreateQuiz extends Component {
       questions: this.state.questions
     };
     this.props.createQuiz(quiz);
+    this.props.history.push("/");
   }
 
   updateQuestion(index, question) {
@@ -132,7 +134,7 @@ class CreateQuiz extends Component {
   }
 }
 
-CreateQuiz.propTypes = {
+EditQuiz.propTypes = {
   createQuiz: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired
 }
@@ -141,4 +143,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors
 })
 
-export default connect(mapStateToProps, { createQuiz })(CreateQuiz);
+export default connect(mapStateToProps, { createQuiz })(EditQuiz);

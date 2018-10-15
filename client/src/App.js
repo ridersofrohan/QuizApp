@@ -10,7 +10,7 @@ import setAuthToken from './actions/setAuthToken.js';
 import Home from './containers/Home.js';
 import Login from './containers/Login.js';
 import Signup from './containers/Signup.js';
-import CreateQuiz from './containers/CreateQuiz.js';
+import EditQuiz from './containers/EditQuiz.js';
 
 if(localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -26,7 +26,7 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/login' component={Login} />
-            <Route exact path='/create-quiz' component={CreateQuiz} />
+            <Route exact path='/create-quiz' component={EditQuiz} />
           </Switch>
         </BrowserRouter>
       </Provider>

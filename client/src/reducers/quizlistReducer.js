@@ -1,5 +1,6 @@
 import { GET_QUIZES_BEGIN, GET_QUIZES_SUCCESS, GET_QUIZES_FAILURE,
-         CREATE_QUIZ_BEGIN, CREATE_QUIZ_SUCCESS, CREATE_QUIZ_FAILURE } from '../actions/types.js';
+         CREATE_QUIZ_BEGIN, CREATE_QUIZ_SUCCESS, CREATE_QUIZ_FAILURE,
+         DELETE_QUIZ_BEGIN, DELETE_QUIZ_SUCCESS, DELETE_QUIZ_FAILURE } from '../actions/types.js';
 
 const initialState = {
   quizes: [],
@@ -20,10 +21,43 @@ export default function quizlistReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        quizes: state.quizes.concat([action.payload.quiz])
+        quizes: [...state.quizes, action.payload.quiz]
       };
 
     case CREATE_QUIZ_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        quizes: []
+      };
+
+    case DELETE_QUIZ_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+
+    case DELETE_QUIZ_SUCCESS:
+      const quizID = action.payload.quiz._id
+      const index = state.quizes.findIndex((item) => item._id === quizID);
+      if (index !== -1) {
+        return {
+          ...state,
+          loading: false,
+          quizes: [
+            ...state.quizes.slice(0, index),
+            ...state.quizes.slice(index + 1)
+          ]
+        };
+      }
+      return {
+        ...state,
+        loading: false,
+      };
+
+    case DELETE_QUIZ_FAILURE:
       return {
         ...state,
         loading: false,

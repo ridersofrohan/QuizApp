@@ -9,8 +9,8 @@ import QuizList from './QuizList.js';
 import '../styles/Home.css';
 
 class Home extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       authenticated: false
@@ -28,7 +28,9 @@ class Home extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.setState({authenticated: nextProps.auth.isAuthenticated});
+      this.setState({
+        authenticated: nextProps.auth.isAuthenticated
+      });
     }
   }
 

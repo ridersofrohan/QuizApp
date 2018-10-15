@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ERRORS, SET_CURRENT_USER } from './types.js';
+import { GET_ERRORS, SET_CURRENT_USER, LOG_OUT } from './types.js';
 import setAuthToken from './setAuthToken.js';
 
 export const registerUser = (user, history) => dispatch => {
@@ -9,7 +9,6 @@ export const registerUser = (user, history) => dispatch => {
       const { token } = res.data;
       localStorage.setItem('jwtToken', token);
       setAuthToken(token);
-      // history.push('/login');
     })
     .catch((err) => {
       dispatch({
@@ -41,7 +40,7 @@ export const logoutUser = (history) => dispatch => {
   setAuthToken(false);
   dispatch(setCurrentUser(undefined));
   history.push('/login');
-  dispatch({type: "LOG_OUT"});
+  dispatch({type: LOG_OUT});
 }
 
 export const setCurrentUser = (token) => {
