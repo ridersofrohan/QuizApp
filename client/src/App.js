@@ -27,6 +27,7 @@ class App extends Component {
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/create-quiz' component={EditQuiz} />
+            <Route exact path='/edit-quiz' component={EditQuiz} />
           </Switch>
         </BrowserRouter>
       </Provider>

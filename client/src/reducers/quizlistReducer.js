@@ -1,6 +1,7 @@
 import { GET_QUIZES_BEGIN, GET_QUIZES_SUCCESS, GET_QUIZES_FAILURE,
          CREATE_QUIZ_BEGIN, CREATE_QUIZ_SUCCESS, CREATE_QUIZ_FAILURE,
-         DELETE_QUIZ_BEGIN, DELETE_QUIZ_SUCCESS, DELETE_QUIZ_FAILURE } from '../actions/types.js';
+         DELETE_QUIZ_BEGIN, DELETE_QUIZ_SUCCESS, DELETE_QUIZ_FAILURE,
+         GET_QUESTIONS_BEGIN, GET_QUESTIONS_SUCCESS, GET_QUESTIONS_FAILURE } from '../actions/types.js';
 
 const initialState = {
   quizes: [],
@@ -10,6 +11,35 @@ const initialState = {
 
 export default function quizlistReducer(state = initialState, action) {
   switch(action.type) {
+
+    case GET_QUESTIONS_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+
+    case GET_QUESTIONS_SUCCESS:
+      const quizid = action.payload.quizID;
+      const i = state.quizes.findIndex((item) => item._id === quizid);
+      var quiz = state.quizes[i];
+      quiz.questions = action.payload.questions;
+      return {
+        ...state,
+        loading: false,
+        quizes: [
+          ...state.quizes.slice(0, i), quiz, ...state.quizes.slice(i + 1)
+        ]
+      };
+
+    case GET_QUESTIONS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        quizes: state.quizes
+      };
+
     case CREATE_QUIZ_BEGIN:
       return {
         ...state,
@@ -29,7 +59,7 @@ export default function quizlistReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.payload.error,
-        quizes: []
+        quizes: state.quizes
       };
 
     case DELETE_QUIZ_BEGIN:
@@ -40,7 +70,7 @@ export default function quizlistReducer(state = initialState, action) {
       };
 
     case DELETE_QUIZ_SUCCESS:
-      const quizID = action.payload.quiz._id
+      const quizID = action.payload.quiz._id;
       const index = state.quizes.findIndex((item) => item._id === quizID);
       if (index !== -1) {
         return {
@@ -62,7 +92,7 @@ export default function quizlistReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.payload.error,
-        quizes: []
+        quizes: state.quizes
       };
 
     case GET_QUIZES_BEGIN:
@@ -84,7 +114,7 @@ export default function quizlistReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.payload.error,
-        quizes: []
+        quizes: state.quizes
       };
 
     default:

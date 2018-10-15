@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createQuiz } from '../actions/quizlist.js';
+import { createQuiz, fetchQuestions } from '../actions/quizlist.js';
 
 import Navbar from '../components/Navbar.js';
 import Question from '../components/Question.js';
@@ -13,6 +13,7 @@ class EditQuiz extends Component {
     super(props);
 
     this.state = {
+      quiz: undefined,
       name: '',
       questions: [],
       errors: {}
@@ -24,6 +25,39 @@ class EditQuiz extends Component {
     this.removeQuestion = this.removeQuestion.bind(this);
     this.canSave = this.canSave.bind(this);
     this.saveQuiz = this.saveQuiz.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.location.state) {
+      var updated = {quiz: this.props.location.state.quiz};
+
+      if (updated.quiz.questions) {
+        updated.questions = updated.quiz.questions;
+      }
+      else {
+        this.props.fetchQuestions(updated.quiz._id);
+      }
+
+      if (updated.quiz.title) {
+        updated.name = updated.quiz.title
+      }
+      this.setState(updated);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.location.state) {
+      var updated = {quiz: this.props.location.state.quiz};
+
+      if (updated.quiz.questions) {
+        updated.questions = updated.quiz.questions;
+      }
+
+      if (updated.quiz.title) {
+        updated.name = updated.quiz.title
+      }
+      this.setState(updated);
+    }
   }
 
   canSave() {
@@ -136,11 +170,13 @@ class EditQuiz extends Component {
 
 EditQuiz.propTypes = {
   createQuiz: PropTypes.func.isRequired,
+  fetchQuestions: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-  errors: state.errors
+  errors: state.errors,
+  quizList: state.quizList
 })
 
-export default connect(mapStateToProps, { createQuiz })(EditQuiz);
+export default connect(mapStateToProps, { createQuiz, fetchQuestions })(EditQuiz);

@@ -45,7 +45,11 @@ class Home extends Component {
         </div>
       );
     } else {
-      content = <QuizList quizes={this.props.quizList.quizes} />;
+      content = (
+        <QuizList
+          history={this.props.history}
+          quizes={this.props.quizList.quizes} />
+      );
     }
 
     return (

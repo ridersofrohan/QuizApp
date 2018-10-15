@@ -23,7 +23,12 @@ class QuizList extends Component {
   }
 
   onEditClicked(index) {
-
+    this.props.history.push({
+      pathname: '/edit-quiz',
+      state: {
+        quiz: this.props.quizes[index]
+      }
+    })
   }
 
   render() {

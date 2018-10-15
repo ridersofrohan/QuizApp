@@ -21,8 +21,21 @@ router.get('/me', passport.authenticate('jwt', { session: false }), (req, res) =
   });
 });
 
+router.get('/questions', passport.authenticate('jwt', {session: false}), (req, res) => {
+  const quizID = req.query.quiz;
+  if (!quizID) {
+    return res.status(422).send({ success: false, error: 'You must pass a quiz id.'});
+  }
+
+  Question.find({quiz: quizID}).then((questions) => {
+    console.log(questions);
+    return res.status(200).json({
+      questions: questions
+    });
+  })
+});
+
 router.get('/quizes', passport.authenticate('jwt', {session: false}), (req, res) => {
-  console.log(req.user._id);
   Quiz.find({author: req.user._id}).then((quizes) => {
     return res.status(200).json({
       quizes: quizes
@@ -77,7 +90,6 @@ router.post('/delete-quiz', passport.authenticate('jwt', {session: false}), (req
     });
   });
 });
-
 
 router.get('/', (req, res, next) => {
   res.status(200).json({
