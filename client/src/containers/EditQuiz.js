@@ -39,7 +39,8 @@ class EditQuiz extends Component {
 
         if (this.props.questions.questions[quizID]) {
           updated.quiz.questions = this.props.questions.questions[quizID];
-          updated.questions = updated.quiz.questions;
+          var x = JSON.parse(JSON.stringify(updated.quiz.questions));
+          updated.questions = x;
         }
         else {
           this.props.fetchQuestions(quizID);
@@ -116,9 +117,19 @@ class EditQuiz extends Component {
         });
       }
 
-      console.log(this.state.updatedQuestions);
-      console.log(this.state.addedQuestions);
-      console.log(this.state.removedQuestions);
+      if (Object.values(this.state.updatedQuestions).length > 0) {
+        this.props.updateQuestions({
+          quizID: oldQuiz._id,
+          questions: Object.values(this.state.updatedQuestions)
+        });
+      }
+
+      if (this.state.removedQuestions.length > 0) {
+        this.props.deleteQuestions({
+          quizID: oldQuiz._id,
+          questions: this.state.removedQuestions
+        });
+      }
 
       if (oldQuiz.title !== quiz.name || oldQuiz.questions.length !== quiz.questions.length) {
         this.props.updateQuiz({

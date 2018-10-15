@@ -32,7 +32,6 @@ export const createQuestions = (questions) => dispatch => {
       return res.data;
     })
     .then((json) => {
-      console.log(json);
       dispatch({
         type: CREATE_QUESTIONS_SUCCESS,
         payload: {questions: json.questions, quizID: json.quizID }
@@ -71,6 +70,7 @@ export const updateQuestions = (questions) => dispatch => {
       return res.data;
     })
     .then((json) => {
+      console.log(json);
       dispatch({
         type: UPDATE_QUESTIONS_SUCCESS,
         payload: {questions: json.questions, quizID: json.quizID }
