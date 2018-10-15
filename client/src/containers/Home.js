@@ -39,8 +39,11 @@ class Home extends Component {
     if (!this.state.authenticated) {
       content =  (
         <div className="content">
-          <div className="title">
-            Welcome to QUIZAPP!
+          <div className="main-title">
+            Welcome to Quizapp!
+          </div>
+          <div className="main-subtitle">
+            We are the premier quiz app, you can make and take your own quizzes!
           </div>
         </div>
       );

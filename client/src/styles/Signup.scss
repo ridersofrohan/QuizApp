@@ -1,32 +1,36 @@
 .container {
   text-align: center;
 
-  .form-group {
-    padding: 0.5rem;
-    line-height: 39.9999px;
-    position: relative;
-    zoom: 1;
+  .login-container {
+    text-align: center;
 
-    input {
-      padding: 4px 11px;
-      width: 300px;
-      height: 32px;
-      font-size: 14px;
-      line-height: 1.5;
-      background-color: #fff;
-      border: 1px solid #d9d9d9;
-      border-radius: 4px;
-    }
+    .form-group {
+      padding: 0.5rem;
+      line-height: 39.9999px;
+      position: relative;
+      zoom: 1;
 
-    .btn {
-      border-radius: 4px;
-      padding: 4px 11px;
-      width: 300px;
-      height: 32px;
-      color: #fff;
-      font-size: 14px;
-      background-color: #1890ff;
-      border-color: #1890ff;
+      input {
+        padding: 4px 11px;
+        width: 300px;
+        height: 32px;
+        font-size: 14px;
+        line-height: 1.5;
+        background-color: #fff;
+        border: 1px solid #d9d9d9;
+        border-radius: 4px;
+      }
+
+      .btn {
+        border-radius: 4px;
+        padding: 4px 11px;
+        width: 300px;
+        height: 32px;
+        color: #fff;
+        font-size: 14px;
+        background-color: #1890ff;
+        border-color: #1890ff;
+      }
     }
   }
 }

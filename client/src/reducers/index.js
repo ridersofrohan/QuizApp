@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 import errorReducer from './errorReducer.js';
 import authReducer from './authReducer.js';
-import quizListReducer from './quizlistReducer.js'
+import quizlistReducer from './quizlistReducer.js';
+import questionsReducer from './questionsReducer.js';
 
 const appReducer = combineReducers({
   errors: errorReducer,
   auth: authReducer,
-  quizList: quizListReducer
+  quizList: quizlistReducer,
+  questions: questionsReducer
 });
 
 const rootReducer = ( state, action ) => {

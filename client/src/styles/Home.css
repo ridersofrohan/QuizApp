@@ -3,3 +3,10 @@
   text-align: left;
   min-height: 100vh;
   color: white; }
+  .container .content {
+    padding: 1rem; }
+    .container .content .main-title {
+      font-size: 3rem; }
+    .container .content .main-subtitle {
+      margin-top: 2rem;
+      font-size: 2rem; }

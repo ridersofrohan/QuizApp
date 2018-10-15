@@ -1,7 +1,7 @@
 import { GET_QUIZES_BEGIN, GET_QUIZES_SUCCESS, GET_QUIZES_FAILURE,
          CREATE_QUIZ_BEGIN, CREATE_QUIZ_SUCCESS, CREATE_QUIZ_FAILURE,
          DELETE_QUIZ_BEGIN, DELETE_QUIZ_SUCCESS, DELETE_QUIZ_FAILURE,
-         GET_QUESTIONS_BEGIN, GET_QUESTIONS_SUCCESS, GET_QUESTIONS_FAILURE } from '../actions/types.js';
+         UPDATE_QUIZ_BEGIN, UPDATE_QUIZ_SUCCESS, UPDATE_QUIZ_FAILURE } from '../actions/types.js';
 
 const initialState = {
   quizes: [],
@@ -11,35 +11,6 @@ const initialState = {
 
 export default function quizlistReducer(state = initialState, action) {
   switch(action.type) {
-
-    case GET_QUESTIONS_BEGIN:
-      return {
-        ...state,
-        loading: true,
-        error: null
-      };
-
-    case GET_QUESTIONS_SUCCESS:
-      const quizid = action.payload.quizID;
-      const i = state.quizes.findIndex((item) => item._id === quizid);
-      var quiz = state.quizes[i];
-      quiz.questions = action.payload.questions;
-      return {
-        ...state,
-        loading: false,
-        quizes: [
-          ...state.quizes.slice(0, i), quiz, ...state.quizes.slice(i + 1)
-        ]
-      };
-
-    case GET_QUESTIONS_FAILURE:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload.error,
-        quizes: state.quizes
-      };
-
     case CREATE_QUIZ_BEGIN:
       return {
         ...state,
@@ -61,6 +32,41 @@ export default function quizlistReducer(state = initialState, action) {
         error: action.payload.error,
         quizes: state.quizes
       };
+
+    case UPDATE_QUIZ_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+
+    case UPDATE_QUIZ_SUCCESS:
+      const quizid = action.payload.quiz._id;
+      const i = state.quizes.findIndex((item) => item._id === quizid);
+      if (i !== -1) {
+        return {
+          ...state,
+          loading: false,
+          quizes: [
+            ...state.quizes.slice(0, i),
+            action.payload.quiz,
+            ...state.quizes.slice(i + 1)
+          ]
+        };
+      }
+      return {
+        ...state,
+        loading: false,
+      };
+
+    case UPDATE_QUIZ_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        quizes: state.quizes
+      };
+
 
     case DELETE_QUIZ_BEGIN:
       return {

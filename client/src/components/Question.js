@@ -19,6 +19,7 @@ class Question extends Component {
 
   markAsCorrectChoice(index) {
     var question = {
+      _id: this.props._id,
       title: this.props.title,
       choices: this.props.choices,
       correctChoice: index
@@ -31,6 +32,7 @@ class Question extends Component {
     var choices = this.props.choices;
     choices.splice(index, 1);
     var question = {
+      _id: this.props._id,
       title: this.props.title,
       choices: choices,
       correctChoice: correct
@@ -42,6 +44,7 @@ class Question extends Component {
     var choices = this.props.choices;
     choices.push("");
     var question = {
+      _id: this.props._id,
       title: this.props.title,
       choices: choices,
       correctChoice: this.props.correctChoice
@@ -51,6 +54,7 @@ class Question extends Component {
 
   onNameChange(e) {
     var question = {
+      _id: this.props._id,
       title: e.target.value,
       choices: this.props.choices,
       correctChoice: this.props.correctChoice
@@ -62,6 +66,7 @@ class Question extends Component {
     var choices = this.props.choices;
     choices[index] = e.target.value;
     var question = {
+      _id: this.props._id,
       title: this.props.title,
       choices: choices,
       correctChoice: this.props.correctChoice

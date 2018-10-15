@@ -60,7 +60,7 @@ class Login extends Component {
         <Navbar />
 
         <h2>Login</h2>
-        <form onSubmit={ this.onSubmit }>
+        <form onSubmit={ this.onSubmit } className="login-container">
           <div className="form-group">
             <input
               type="email"
