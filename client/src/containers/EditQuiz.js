@@ -90,8 +90,10 @@ class EditQuiz extends Component {
       name: this.state.name,
       questions: this.state.questions
     };
-    this.props.createQuiz(quiz);
-    this.props.history.push("/");
+    if (!this.state.quiz) {
+      this.props.createQuiz(quiz);
+      this.props.history.push("/");
+    }
   }
 
   updateQuestion(index, question) {
