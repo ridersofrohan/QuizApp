@@ -1,0 +1,49 @@
+.question-container {
+  margin-bottom: 1rem;
+  width: 600px; }
+  .question-container .question-title {
+    padding: 0.5rem;
+    line-height: 39.9999px;
+    position: relative;
+    zoom: 1; }
+    .question-container .question-title label {
+      float: left;
+      text-align: left;
+      width: 400px;
+      padding: 4px 11px;
+      margin-bottom: 0; }
+    .question-container .question-title button {
+      margin-top: 1rem;
+      float: right; }
+    .question-container .question-title input {
+      padding: 4px 11px;
+      width: 500px;
+      height: 32px;
+      font-size: 14px;
+      line-height: 1.5;
+      background-color: #fff;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px; }
+  .question-container .choices {
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    flex-direction: column; }
+    .question-container .choices .choice {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem; }
+      .question-container .choices .choice input {
+        padding: 4px 11px;
+        width: 325px;
+        height: 25px;
+        font-size: 14px;
+        line-height: 1.5;
+        background-color: #fff;
+        border: 1px solid #d9d9d9;
+        border-radius: 4px; }
+      .question-container .choices .choice button {
+        margin-left: 0.5rem; }
+      .question-container .choices .choice .correct {
+        margin-left: 0.5rem;
+        font-size: 0.75rem; }

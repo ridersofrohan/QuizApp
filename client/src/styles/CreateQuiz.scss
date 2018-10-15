@@ -1,0 +1,38 @@
+.container {
+  background-color: #282c34;
+  text-align: left;
+  min-height: 100vh;
+  color: white;
+
+  .content {
+    text-align: center;
+
+    .title {
+      padding: 1rem;
+
+      input {
+        padding: 4px 11px;
+        width: 500px;
+        height: 32px;
+        font-size: 14px;
+        line-height: 1.5;
+        background-color: #fff;
+        border: 1px solid #d9d9d9;
+        border-radius: 4px;
+      }
+    }
+
+    .questions-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      padding: 1rem;
+    }
+
+    .addQuestion {
+      margin: 1rem;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.quizzes-container {
+  padding: 1rem 2rem; }
+  .quizzes-container h1 {
+    text-align: center; }
+  .quizzes-container .quizes {
+    margin-top: 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: 1.25rem;
+    margin: 0.5rem;
+    line-height: 1.5;
+    flex: 1 1 auto; }
+    .quizzes-container .quizes .quiz {
+      margin: 0.25rem;
+      height: 2rem;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      word-break: break-word;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 1.25rem; }
+      .quizzes-container .quizes .quiz span {
+        width: 33%; }
+      .quizzes-container .quizes .quiz .underline {
+        text-decoration: underline; }
+      .quizzes-container .quizes .quiz .center {
+        text-align: center; }
+      .quizzes-container .quizes .quiz .right {
+        margin-top: 0;
+        text-align: right; }
+      .quizzes-container .quizes .quiz .left {
+        font-size: 1.25rem;
+        text-align: left; }

@@ -1,0 +1,53 @@
+.quizzes-container {
+  padding: 1rem 2rem;
+
+  h1 {
+    text-align: center;
+  }
+
+  .quizes {
+    margin-top: 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: 1.25rem;
+    margin: 0.5rem;
+    line-height: 1.5;
+    flex: 1 1 auto;
+
+    .quiz {
+      margin: 0.25rem;
+      height: 2rem;
+
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      word-break: break-word;
+      overflow: hidden;
+      white-space: nowrap;
+
+      font-size: 1.25rem;
+
+      span {
+        width: 33%;
+      }
+
+      .underline {
+        text-decoration: underline;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .right {
+        margin-top: 0;
+        text-align: right;
+      }
+
+      .left {
+        font-size: 1.25rem;
+        text-align: left;
+      }
+    }
+  }
+}

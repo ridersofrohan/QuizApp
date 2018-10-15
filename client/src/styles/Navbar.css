@@ -1,0 +1,28 @@
+.header {
+  padding: 1rem; }
+  .header .right {
+    padding-right: 1rem;
+    margin-top: -2rem;
+    float: right; }
+    .header .right .link {
+      padding-left: 1rem;
+      text-decoration: none;
+      color: white; }
+  .header .left {
+    color: white;
+    text-decoration: none;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    font-size: 1.5rem; }
+    .header .left .logo {
+      animation: App-logo-spin infinite 20s linear;
+      height: 40px; }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }

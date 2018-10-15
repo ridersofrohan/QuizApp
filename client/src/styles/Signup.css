@@ -1,0 +1,25 @@
+.container {
+  text-align: center; }
+  .container .form-group {
+    padding: 0.5rem;
+    line-height: 39.9999px;
+    position: relative;
+    zoom: 1; }
+    .container .form-group input {
+      padding: 4px 11px;
+      width: 300px;
+      height: 32px;
+      font-size: 14px;
+      line-height: 1.5;
+      background-color: #fff;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px; }
+    .container .form-group .btn {
+      border-radius: 4px;
+      padding: 4px 11px;
+      width: 300px;
+      height: 32px;
+      color: #fff;
+      font-size: 14px;
+      background-color: #1890ff;
+      border-color: #1890ff; }
