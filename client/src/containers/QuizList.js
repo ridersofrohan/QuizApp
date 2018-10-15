@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 
 import '../styles/QuizList.css';
 
@@ -13,7 +12,7 @@ class QuizList extends Component {
           <span className="right">
             <button> Edit </button>
             <button> Remove </button>
-            <button> Play </button>
+            <button onClick> Play </button>
           </span>
         </div>
       );

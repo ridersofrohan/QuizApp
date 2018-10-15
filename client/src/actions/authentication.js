@@ -41,6 +41,7 @@ export const logoutUser = (history) => dispatch => {
   setAuthToken(false);
   dispatch(setCurrentUser(undefined));
   history.push('/login');
+  dispatch({type: "LOG_OUT"});
 }
 
 export const setCurrentUser = (token) => {
