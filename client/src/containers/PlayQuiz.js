@@ -77,9 +77,10 @@ class PlayQuiz extends Component {
       questions[i].correctChoice = correctChoice;
       correct += correctChoice === questions[i].selected ? 1 : 0;
     }
+    
     this.setState({
       questions: questions,
-      numCorrect: correct
+      numCorrect: "" + correct
     });
   }
 

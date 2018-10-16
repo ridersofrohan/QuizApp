@@ -32,7 +32,6 @@ class PlayQuestion extends Component {
         className = "selected";
       }
 
-
       return (
         <div className={"choice " + className}
           key={index} onClick={() => this.choiceClicked(index)}>
