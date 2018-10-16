@@ -49,8 +49,8 @@ class PlayQuestion extends Component {
     }
 
     return (
-      <div className="question-container">
-        <div className="question-title">
+      <div className="play-question-container">
+        <div className="play-question-title">
           <div>
             <label>
               Question {this.props.index+1} {correctText}
@@ -61,7 +61,7 @@ class PlayQuestion extends Component {
           </div>
         </div>
 
-        <div className="choices">
+        <div className="play-choices">
           {choices}
         </div>
       </div>

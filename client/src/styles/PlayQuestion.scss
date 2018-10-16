@@ -1,8 +1,8 @@
-.question-container {
+.play-question-container {
   margin-bottom: 1rem;
   width: 80%;
 
-  .question-title {
+  .play-question-title {
     display: flex;
     flex-direction: column;
 
@@ -28,7 +28,7 @@
     }
   }
 
-  .choices {
+  .play-choices {
     position: relative;
     padding: 1rem;
     display: flex;
