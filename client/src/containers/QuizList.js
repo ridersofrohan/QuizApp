@@ -15,7 +15,12 @@ class QuizList extends Component {
   }
 
   onPlayClicked(index) {
-
+    this.props.history.push({
+      pathname: '/play-quiz',
+      state: {
+        quiz: this.props.quizes[index]
+      }
+    });
   }
 
   onRemoveClicked(index) {
@@ -28,7 +33,7 @@ class QuizList extends Component {
       state: {
         quiz: this.props.quizes[index]
       }
-    })
+    });
   }
 
   render() {

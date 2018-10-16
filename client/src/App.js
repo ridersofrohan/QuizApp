@@ -11,6 +11,7 @@ import Home from './containers/Home.js';
 import Login from './containers/Login.js';
 import Signup from './containers/Signup.js';
 import EditQuiz from './containers/EditQuiz.js';
+import PlayQuiz from './containers/PlayQuiz.js';
 
 if(localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -28,6 +29,7 @@ class App extends Component {
             <Route exact path='/login' component={Login} />
             <Route exact path='/create-quiz' component={EditQuiz} />
             <Route exact path='/edit-quiz' component={EditQuiz} />
+            <Route exact path='/play-quiz' component={PlayQuiz} />
           </Switch>
         </BrowserRouter>
       </Provider>
