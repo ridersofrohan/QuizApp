@@ -47,19 +47,28 @@ class Login extends Component {
   onSubmit(e) {
     e.preventDefault();
     const user = {
-        email: this.state.email,
+      email: this.state.email,
       password: this.state.password
     }
-    console.log(user);
     this.props.loginUser(user);
   }
 
   render() {
+    var errors = null;
+    if (this.state.errors.error) {
+      errors = (
+        <div className="error">
+          {this.state.errors.error}
+        </div>
+      );
+    }
+
     return (
       <div className="container">
         <Navbar />
 
         <h2>Login</h2>
+        {errors}
         <form onSubmit={ this.onSubmit } className="login-container">
           <div className="form-group">
             <input

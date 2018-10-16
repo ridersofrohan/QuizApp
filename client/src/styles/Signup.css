@@ -1,5 +1,8 @@
 .container {
   text-align: center; }
+  .container .error {
+    padding: 1rem;
+    color: red; }
   .container .login-container {
     text-align: center; }
     .container .login-container .form-group {

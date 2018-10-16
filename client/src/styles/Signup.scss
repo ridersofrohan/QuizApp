@@ -1,6 +1,11 @@
 .container {
   text-align: center;
 
+  .error {
+    padding: 1rem;
+    color: red;
+  }
+
   .login-container {
     text-align: center;
 

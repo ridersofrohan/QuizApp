@@ -51,16 +51,25 @@ class Signup extends Component {
       email: this.state.email,
       password: this.state.password
     }
-    console.log(user);
     this.props.registerUser(user, this.props.history);
   }
 
   render() {
+    var errors = null;
+    if (this.state.errors.error) {
+      errors = (
+        <div className="error">
+          {this.state.errors.error}
+        </div>
+      );
+    }
+
     return (
       <div className="container">
         <Navbar />
 
         <h2>Registration</h2>
+        {errors}
         <form onSubmit={ this.onSubmit } className="login-container">
           <div className="form-group">
             <input

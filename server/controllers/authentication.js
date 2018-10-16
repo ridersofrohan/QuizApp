@@ -39,7 +39,7 @@ exports.login = function(req, res, next) {
 
   User.findOne({email: email}).then((user) => {
     if(!user) {
-      return res.status(404).json({ error: 'Your login details could not be verified. Please try again.' });
+      return res.status(404).json({ error: 'Your login details could not be verified.' });
     }
 
     bcrypt.compare(password, user.password).then((isMatch) => {
@@ -73,7 +73,7 @@ exports.register = function(req, res, next) {
   User.findOne({ email: email}).then((user) => {
     if (user) {
       return res.status(400).json({
-        email: 'Email already exists'
+        error: 'Email already exists'
       });
     }
 
